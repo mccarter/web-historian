@@ -7,6 +7,36 @@
   Enter a URL here:
   <form method="POST">
     <input type="input" name="url"></input>
+    <button id='submit'>Submit</button>
   </form>
+
+  <script>
+    $(document).ready( function() {
+
+      $('#submit').on('click', function(){
+        var requestedURL = $('input').val();
+        if (requestedURL) {
+          postRequest(requestedURL);
+          $('input').val('');
+        }
+      });
+
+      var postRequest = function(data) {
+        $.ajax({
+          url: 'http://127.0.0.1:8080',
+          type: 'POST',
+          data: JSON.stringify(data),
+          contentType: 'application/json',
+          success: function (data) {        // why is this needed?
+            console.log('URL request sent.');
+          },
+          error:function(data) {
+            console.error('Failed to send URL');
+          }
+        });
+      };
+    });
+
+  </script>
 </body>
 </html>
