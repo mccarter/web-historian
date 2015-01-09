@@ -8,7 +8,10 @@ initialize();
 
 var port = 8080;
 var ip = "127.0.0.1";
+//creates server with above IP and port number and sets up a request handler
+//function that listens for events
 var server = http.createServer(handler.handleRequest);
 console.log("Listening on http://" + ip + ":" + port);
+//server now listens to above ip and port
 server.listen(port, ip);
 

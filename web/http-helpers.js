@@ -17,6 +17,7 @@ exports.sendResponse = function(res, data, statusCode) {
 };
 
 exports.serveAssets = function(res, asset, callback) {
+  //once file is read, call sendResponse with the file data
   fs.readFile(asset, 'utf8', function(err, data) {
     // console.log(data);
     exports.sendResponse(res, data, 200);
