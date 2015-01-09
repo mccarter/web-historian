@@ -29,8 +29,6 @@ var actions = {
         //parse url, cutting off first 4 characters
       var url = data.slice(4);
       archive.addUrlToList('../archives/sites.txt', url);
-      // console.log(data);
-
     });
 
     // console.log(req.url);
